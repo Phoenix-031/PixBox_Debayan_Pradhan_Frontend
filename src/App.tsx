@@ -1,34 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-function App() {
-  const [count, setCount] = useState(0)
+import axios from "axios";
 
+import {fabric} from "fabric";
+
+import { useEffect, useLayoutEffect, useState } from "react";
+
+import styles from './app.module.scss';
+import CanvasTemplate from "./components/CanvasTemplate";
+
+// type CanvasObject = {
+//   type: 'image' | 'text';
+//   source?: string;
+//   scaleX?: number;
+//   scaleY?: number;
+//   top: number;
+//   left: number;
+//   opacity?: number;
+//   text?: string;
+//   fontSize?: number;
+//   fontFamily?: string;
+//   fontWeight?: string;
+//   fill?: string;
+// };
+
+// type CanvasState = {
+//   canvas: {
+//     width: number;
+//     height: number;
+//     backgroundColor: string;
+//   };
+//   objects: CanvasObject[];
+// };
+
+const App = () => {
+
+  // const [template, setTemplate] = useState<CanvasState | null>(null);
+
+  // useEffect(()=> {
+  //   const fetchData = async() => {
+  //     const response = await axios.get("http://localhost:7683/api/v1/main/getTemplate")
+  //     console.log(response.data)
+  //     setTemplate(response.data);
+  //   }
+
+  //   fetchData();
+  // }, [])
+
+    // useLayoutEffect(() => {
+
+    //   console.log(template?.canvas,"vkjdnfjk")
+
+		// const canvas = new fabric.Canvas('canvas', {
+    //             height: template?.canvas.height,
+    //             width: template?.canvas.width,
+    //             fireRightClick: true,
+    //             fireMiddleClick: true,
+    //             backgroundColor: template?.canvas.backgroundColor
+		// });
+    //     canvas.requestRenderAll();
+    // }, [template])
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className={styles.main__container}>
+      <CanvasTemplate />
+    </div>
   )
 }
 
