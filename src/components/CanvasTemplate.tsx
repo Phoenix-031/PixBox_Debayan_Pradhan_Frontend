@@ -14,6 +14,8 @@ const CanvasTemplate = () => {
 
     const isSmallScreen : boolean = useSmallScreen();
 
+    
+
   useEffect(()=> {
     const fetchData = async() => {
       const response = await axios.get(apiUrl);
@@ -43,6 +45,7 @@ const CanvasTemplate = () => {
     });
 
     canvas.backgroundColor = gradient as unknown as string ;
+
 
     template?.objects.forEach((objData,ind : number) => {
       let fabricObject;
