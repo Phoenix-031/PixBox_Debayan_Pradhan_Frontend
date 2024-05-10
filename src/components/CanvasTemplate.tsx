@@ -3,18 +3,14 @@ import { fabric } from 'fabric';
 import axios from 'axios';
 import { CanvasState } from './types';
 import useSmallScreen from '../hooks/useSmallScreen';
-
-const apiUrl= "http://localhost:7683/api/v1/main/getTemplate"
-const imageUrl = "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww"
+import { apiUrl, imageUrl } from '../constants/constant';
 
 const CanvasTemplate = () => {
   const canvasRef = useRef(null);
 
     const [template, setTemplate] = useState<CanvasState | null>(null);
-
     const isSmallScreen : boolean = useSmallScreen();
 
-    
 
   useEffect(()=> {
     const fetchData = async() => {
