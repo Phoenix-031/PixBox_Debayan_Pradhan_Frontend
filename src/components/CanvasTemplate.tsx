@@ -40,13 +40,23 @@ const CanvasTemplate = () => {
       ]
     });
 
-    canvas.backgroundColor = gradient as unknown as string ;
+    const coveringRect = new fabric.Rect({
+      width: template?.canvas.width,
+      height: template?.canvas.height,
+      fill: gradient,
+      selectable: false
+    });
+
+    canvas.add(coveringRect);
+
+
+    // canvas.backgroundColor = gradient as unknown as string ;
 
 
     template?.objects.forEach((objData,ind : number) => {
       let fabricObject;
 
-      if (objData.type === 'image') {
+      if (objData.type === 'image' && ind !== template?.objects.length - 1) {
         fabric.Image.fromURL(imageUrl, img => {
           fabricObject = img.set({
             scaleX: objData.scaleX || 1,
