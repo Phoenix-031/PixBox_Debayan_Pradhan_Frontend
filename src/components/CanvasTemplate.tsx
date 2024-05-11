@@ -29,10 +29,12 @@ const CanvasTemplate = () => {
       height: isSmallScreen? template?.canvas.width as number : template?.canvas.height as number,
     });
 
-        const colorStops = template?.canvas.backgroundColor.split(',').map((color, index) => ({
-          offset: index / (template?.canvas.backgroundColor.split(',').length - 1),
-          color: index === 0 ? color.slice(16) : index === template?.canvas.backgroundColor.split(',').length - 1 ? color.slice(0, -1) : color
-      }));
+    canvas.setZoom(0.5)
+
+    const colorStops = template?.canvas.backgroundColor.split(',').map((color, index) => ({
+      offset: index / (template?.canvas.backgroundColor.split(',').length - 1),
+      color: index === 0 ? color.slice(16) : index === template?.canvas.backgroundColor.split(',').length - 1 ? color.slice(0, -1) : color
+    }));
 
 
     const gradient = new fabric.Gradient({
